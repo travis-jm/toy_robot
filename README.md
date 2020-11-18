@@ -7,6 +7,8 @@ Queue Mode - Queue a list of commands that execute in the order they were submit
 
 The report command outputs the ultimate position, or if you still need to place the robot.
 
+All testing was handled in the board.js controller unit test.
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
