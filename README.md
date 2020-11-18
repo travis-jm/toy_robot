@@ -1,7 +1,11 @@
 # toy-robot
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Simple toy robot application, with two input modes. 
+
+Default Mode - indivdual commands that work in the background
+Queue Mode - Queue a list of commands that execute in the order they were submitted.
+
+The report command outputs the ultimate position, or if you still need to place the robot.
 
 ## Prerequisites
 

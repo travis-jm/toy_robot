@@ -1,0 +1,66 @@
+{{outlet}}
+{{!-- #OI --}}
+<p>Toy Robot</p>
+<Robot @reports={{this.reports}} />
+{{!-- /OI --}}
+{{!-- text input --}}
+<label>
+  Queue Mode (All commands will be queued, and executed at once)
+  <button {{on "click" this.toggleQueue}}>
+    {{#if this.queueMode}}
+      Turn Off
+    {{else}}
+      Turn On
+    {{/if}}
+  </button>
+</label>
+{{#if this.queueMode}}
+  <br><br>
+  <label>Command Queue Length: {{this.commands.length}}</label>
+  <button {{on "click" this.executeCommands}}>Execute Command Queue</button>
+{{/if}}
+<br><br>
+{{!-- UI Commands --}}
+{{!-- blocks surrounded by OI comments are my original implmentation, that meet the requirements as I read them the first time (rought 2.5 hours of work), things with out that are things I added in afterwords around 2 more hours--}}
+{{!-- #OI --}}
+<label>
+  X: 
+  <Input
+    @type="number"
+    @value={{this.placeX}}
+  />
+</label>
+<label>
+  Y: 
+  <Input
+    @type="number"
+    @value={{this.placeY}}
+  />
+</label>
+<label>
+  Facing (NORTH, SOUTH, EAST, WEST): 
+  <Input
+    @type="text"
+    @value={{this.facing}}
+  />
+</label>
+{{!-- /OI --}}
+{{#if this.queueMode}}
+  <button 
+  {{on "click" (fn this.queueCommand 'place' this.placeX this.placeY this.facing)}}
+  >Place</button>
+  <br><br>
+  <button {{on "click" (fn this.queueCommand 'move')}}>Move</button>
+  <button {{on "click" (fn this.queueCommand 'left')}}>Left</button>
+  <button {{on "click" (fn this.queueCommand 'right')}}>Right</button>
+  <button {{on "click" (fn this.queueCommand 'report')}}>Report</button>
+{{else}}
+{{!-- #OI --}}
+  <button {{on "click" (fn this.place this.placeX this.placeY this.facing)}}>Place</button>
+  <br><br>
+  <button {{on "click" this.move}}>Move</button>
+  <button {{on "click" this.left}}>Left</button>
+  <button {{on "click" this.right}}>Right</button>
+  <button {{on "click" this.report}}>Report</button>
+{{/if}}
+{{!-- /OI --}}
