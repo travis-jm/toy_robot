@@ -1,5 +1,9 @@
 # toy-robot
 
+RUN: ember serve
+then
+URL: http://localhost:4200/board 
+
 Simple toy robot application, with two input modes. 
 
 Default Mode - indivdual commands that work in the background
